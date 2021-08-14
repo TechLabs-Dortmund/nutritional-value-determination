@@ -8,7 +8,9 @@ By the end you should have filled out the following:
 1. **Project Title:** The title of the project, including a description which states the motivation/problem of the project and the developed solution.
 2. **How to Setup and Run:** The respective commands to install and run the project
 3. **Examples:** A brief overview on how to use the main functionalities of your project (does not have to be code)
+  take a picture of food and get the nutritional information and the kind of the name of it
 4. **Roadmap:** The general outline of what you want to do in what order. Please keep this up to date, so that we can follow what you are and will be doing.
+  https://miro.com/app/board/o9J_l7FPsSk=/
 5. **Authors:** Please add all of you and link your respective GitHub profile and other information if you want to. This part if completely up to you.
 6. If you are done filling out the information below, please **delete this TODO Section** to keep your project readme clean for other people to get to know more about your project.
 
