@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Dashboard from './navigation/dashboard';
+/* import Dashboard from './navigation/dashboard';
 import Homepage from './navigation/homepage';
 import firebase from 'firebase/app';
-import apiKeys from './config/keys';
+import apiKeys from './config/keys'; */
 
 import { Colors } from './components/styles';
 const { primary, tertiary } = Colors;
@@ -35,9 +35,9 @@ export default function App() {
         }}
         initialRouteName="Login"
       >
-        <Stack.Screen options={{ headerTintColor: primary }} name="Welcome" component={Welcome} />
-        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen options={{ headerTintColor: primary }} name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Welcome" component={Welcome} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-
+import { StatusBar } from 'expo-status-bar'
+import CameraComponent from './CameraComponent';
 
 
 //colors
@@ -23,26 +23,27 @@ import {
 const Welcome = ({navigation}) => {
 
 
-    return (
+    return (        
         <>
             <StatusBar style="light"/>
             <InnerContainer>
                     <WelcomeImage resizeMode="cover" source={require('./../assets/img/Food2.jpg')}/>
                 <WelcomeContainer> 
                 <PageTitle Welcome={true}>Welcome!</PageTitle>
-                <SubTitle Welcome={true}>Kent Mousafa</SubTitle>
-                <SubTitle Welcome={true}>KentMousafa@gmail.com</SubTitle>
+                <SubTitle Welcome={true}>Velo Razakamaharavo</SubTitle>
                     <StyledFormArea>
                     <Avatar resizeMode="cover" source={require('./../assets/img/Food1.jpg')}/>
-
                     <Line/>
-
-                    <StyledButton onPress={() => {navigation.navigate('Login')}}>
-                        <ButtonText>Logout</ButtonText>
-                    </StyledButton>
  
                     </StyledFormArea>
                 </WelcomeContainer>
+
+                <CameraComponent/>
+
+                <StyledButton onPress={() => {navigation.navigate('Login')}}>
+                <ButtonText>Logout</ButtonText>
+            </StyledButton>
+
                 </InnerContainer>
         </>
     );
