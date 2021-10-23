@@ -1,0 +1,19 @@
+<div>
+    <label for="name">Username: </label>
+    <input id="name" [(ngModel)]="username" placeholder="name">
+</div>
+<div>
+    <label for="age">Age: </label>
+    <input id="age" [(ngModel)]="age" placeholder="20">
+</div>
+<div>
+    <label for="password">Password: </label>
+    <input id="password" [(ngModel)]="password" placeholder="password">
+</div>
+<div>
+    <label for="repeat-password">Repeat Password: </label>
+    <input id="repeat-password" [(ngModel)]="repeatedPassword" placeholder="repeat your password">
+</div>
+<div>
+    <button class="register-button" (click)="registerUser()">Register Your Account</button>
+</div>
