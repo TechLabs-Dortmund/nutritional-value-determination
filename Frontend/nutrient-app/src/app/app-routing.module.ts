@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CameraComponent } from './camera/camera.component';
+import { FoodTableComponent } from './food-table/food-table.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterUserComponent },
   { path: 'camera', component: CameraComponent},
+  { path: 'foodtable', component: FoodTableComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -1,0 +1,8 @@
+<ejs-grid [dataSource]="tableData">
+  <e-columns>
+    <e-column field="foodName" headerText="FoodName" width=20></e-column>
+    <e-column field="kcal" headerText="KCal" isIdentity="true" width=60></e-column>
+    <e-column field="carbs" headerText="Carbohydrates" isIdentity="true" textAlign="Left" width=60></e-column>
+    <e-column field="sugars" headerText="Sugar" editType= "dropdownedit" allowEditing="true" textAlign="Left" width=60></e-column>
+  </e-columns>
+</ejs-grid>

@@ -11,6 +11,8 @@ import { UserService } from './service/userService';
 import { HttpClientModule } from '@angular/common/http';
 import { CameraComponent } from './camera/camera.component';
 import { UploaderModule } from '@syncfusion/ej2-angular-inputs';
+import { FoodTableComponent } from './food-table/food-table.component';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { UploaderModule } from '@syncfusion/ej2-angular-inputs';
     PageNotFoundComponent,
     RegisterUserComponent,
     CameraComponent,
+    FoodTableComponent,
   ],
   imports: [
     BrowserModule,
     UploaderModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GridModule
   ],
   providers: [
     UserService
