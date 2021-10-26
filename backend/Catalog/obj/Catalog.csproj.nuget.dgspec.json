@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Stahl\\src\\nutritional-value-determination\\backend\\Catalog\\Catalog.csproj": {}
+    "/Users/niklasstahl/src/techlabs/nutritional-value-determination/backend/Catalog/Catalog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Stahl\\src\\nutritional-value-determination\\backend\\Catalog\\Catalog.csproj": {
+    "/Users/niklasstahl/src/techlabs/nutritional-value-determination/backend/Catalog/Catalog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Stahl\\src\\nutritional-value-determination\\backend\\Catalog\\Catalog.csproj",
+        "projectUniqueName": "/Users/niklasstahl/src/techlabs/nutritional-value-determination/backend/Catalog/Catalog.csproj",
         "projectName": "Catalog",
-        "projectPath": "C:\\Users\\Stahl\\src\\nutritional-value-determination\\backend\\Catalog\\Catalog.csproj",
-        "packagesPath": "C:\\Users\\Stahl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Stahl\\src\\nutritional-value-determination\\backend\\Catalog\\obj\\",
+        "projectPath": "/Users/niklasstahl/src/techlabs/nutritional-value-determination/backend/Catalog/Catalog.csproj",
+        "packagesPath": "/Users/niklasstahl/.nuget/packages/",
+        "outputPath": "/Users/niklasstahl/src/techlabs/nutritional-value-determination/backend/Catalog/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Stahl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/niklasstahl/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }

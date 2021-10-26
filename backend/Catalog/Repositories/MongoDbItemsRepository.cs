@@ -20,15 +20,15 @@ namespace Catalog.Repositories
             IMongoDatabase database = mongoClient.GetDatabase(databaseName);
             itemsCollection = database.GetCollection<Item>(collectionName);
         }
-        
+
         public async Task<IEnumerable<Item>> GetItemsAsync()
         {
             return await itemsCollection.Find(new BsonDocument()).ToListAsync();
         }
 
-        public async Task<Item> GetItemAsync(Guid id)
+        public async Task<Item> GetItemAsync(string name)
         {
-            var filter = filterBuilder.Eq(item => item.Id, id);
+            var filter = filterBuilder.Eq(item => item.FoodName, name);
             return await itemsCollection.Find(filter).SingleOrDefaultAsync();
         }
 
@@ -39,7 +39,7 @@ namespace Catalog.Repositories
 
         public async Task UpdateItemAsync(Item item)
         {
-            var filter = filterBuilder.Eq(existingItem => existingItem.Id, item.Id); 
+            var filter = filterBuilder.Eq(existingItem => existingItem.Id, item.Id);
             await itemsCollection.ReplaceOneAsync(filter, item);
         }
 

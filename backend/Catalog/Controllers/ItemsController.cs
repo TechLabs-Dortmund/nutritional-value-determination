@@ -32,10 +32,65 @@ namespace Catalog.Controllers
         }
 
         // GET /items/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ItemDto>> GetItemAsync(Guid id)
+        [HttpGet("{name}")]
+        public async Task<ActionResult<ItemDto>> GetItemAsync(string name)
         {
-            var item = await repository.GetItemAsync(id);
+            Dictionary<string, string> nameDict = new Dictionary<string, string>()
+            {
+                {"baguette", "BREAD,WHEAT"},
+                {"brot", "BREAD,WHEAT"},
+                {"normale brötchen", "BREAD,ITALIAN"},
+                {"körner brötchen", "BREAD,ITALIAN"},
+                {"toastbrot", "BREAD,RYE,TOASTED"},
+                {"Hafer", "OATS"},
+                {"Mais", "CORN,WHITE"},
+                {"Apple", "APPLES,RAW,WITH SKIN"},
+                {"Apricot", "APRICOTS,RAW"},
+                {"Banana", "BANANAS,RAW"},
+                {"Blueberries", "BLUEBERRIES,RAW"},
+                {"Cherry", "CHERRIES,SOUR,RED,RAW"},
+                {"Peach", "PEACHES,RAW"},
+                {"Pear", "PEARS,RAW"},
+                {"Raspberry", "RASPBERRIES,RAW"},
+                {"Strawberry", "STRAWBERRIES,RAW"},
+                {"Watermelon", "WATERMELON,RAW"},
+                {"bacon", "PORK,CURED,BACON,RAW"},
+                {"steak", "BEEF,GRASS-FED,STRIP STEAKS,LN,RAW"},
+                {"Chicken", "CHICKEN BREAST TENDERS,UNCKD"},
+                {"Ham", "USDA COMMODITY,TURKEY HAM,DK MEAT,SMOKED,FRZ"},
+                {"Sausages", "SAUSAGE,VIENNA,CND,CHICK,BF,PORK"},
+                {"Almond", "ALMONDS,BLANCHED"},
+                {"Cashew", "NUTS,CASHEW NUTS,RAW"},
+                {"chiaseed", "CHIA SEEDS,DRIED"},
+                {"Hazelnut", "HAZELNUTS OR FILBERTS"},
+                {"lenses", "LENTILS,RAW"},
+                {"linseed", "CHIA SEEDS,DRIED"},
+                {"Macadamia", "MACADAMIA NUTS,RAW"},
+                {"Peanut", "PEANUTS,ALL TYPES,RAW"},
+                {"Pecan", "PECANS"},
+                {"Pumpkinseed", "SUNFISH,PUMPKIN SEED,RAW"},
+                {"Rice", "WILD RICE,RAW"},
+                {"Sesame", "SESAME SEEDS,WHOLE,DRIED"},
+                {"sunflower seeds", "SUNFLOWER SD KRNLS,DRIED"},
+                {"Walnut", "WALNUTS,ENGLISH"},
+                {"Herring", "HERRING,ATLANTIC,RAW"},
+                {"Salmon", "SALMON,ATLANTIC,WILD,RAW"},
+                {"Sardine", "SARDINE,ATLANTIC,CND IN OIL,DRND SOL W/BONE"},
+                {"Shrimps", "SHRIMP,MIXED SPECIES,RAW"},
+                {"Trout", "SEATROUT,MXD SP,CKD,DRY HEAT"},
+                {"Asparagus", "ASPARAGUS,RAW"},
+                {"Brokkoli", "BROCCOLI,RAW"},
+                {"Carrots", "CARROTS,RAW"},
+                {"Cucumber", "CUCUMBER,WITH PEEL,RAW"},
+                {"Garlic", "GARLIC,RAW"},
+                {"Green beans", "SOYBEANS,GREEN,RAW"},
+                {"Onions", "ONIONS,RAW"},
+                {"Pumpkin", "PUMPKIN,RAW"},
+                {"Spinach", "SPINACH,RAW"},
+                {"Tomatoes", "TOMATOES,GREEN,RAW"},
+            };
+
+            var item = await repository.GetItemAsync(nameDict[name]);
 
             if (item is null)
             {
@@ -71,53 +126,11 @@ namespace Catalog.Controllers
         }
 
         //PUT /items/{id}/{itemDto}
-        [HttpPut]
-        public async Task<ActionResult> UpdateItem(Guid id, UpdateItemDto itemDto)
-        {
-            var existingItem = await repository.GetItemAsync(id);
-            if (existingItem is null)
-            {
-                return NotFound();
-            }
 
-            Item updatedItem = existingItem with
-            {
-                FoodName = itemDto.FoodName,
-                Kcal = itemDto.Kcal,
-                Kj = itemDto.Kj,
-                Protein = itemDto.Protein,
-                Carbs = itemDto.Carbs,
-                Sugars = itemDto.Sugar,
-                Fat = itemDto.Fat,
-                SatFat = itemDto.SatFat,
-                Fibers = itemDto.Fibers,
-            };
-            
-            await repository.UpdateItemAsync(updatedItem);
 
-            return NoContent();
-        }
-
-        //DELETE /items/{id}
-        [HttpDelete]
-        public async Task<ActionResult> DeleteItemAsync(Guid id)
-        {
-            var existingItem = repository.GetItemAsync(id);
-            if (existingItem is null)
-            {
-                return NotFound();
-            }
-            
-            await repository.DeleteItemAsync(id);
-
-            HtmlAgilityPack.HtmlWeb website = new HtmlAgilityPack.HtmlWeb();
-
-            return NoContent();
-        }
-        
     }
-    
-    
+
+
     [ApiController]
     [Route("scrape")]
     public class WebScrapingController : ControllerBase
@@ -141,6 +154,6 @@ namespace Catalog.Controllers
             Console.WriteLine("Node Name: " + node.Name + "\n" + node.InnerText);
         }
     }
-    
-    
+
+
 }

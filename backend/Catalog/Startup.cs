@@ -39,12 +39,12 @@ namespace Catalog
             BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
             BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
             var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-            
+
             services.AddSingleton<IMongoClient>(serviceProvider => new MongoClient(mongoDbSettings.ConnectionString));
 
             services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
             services.AddSingleton<IUserRepository, MongoDbUserRepository>();
-            
+
             services.AddControllers(options =>
             {
                 options.SuppressAsyncSuffixInActionNames = false;
@@ -55,8 +55,8 @@ namespace Catalog
             });
 
             services.AddHealthChecks()
-                .AddMongoDb(mongoDbSettings.ConnectionString, 
-                    name: "mongodb", 
+                .AddMongoDb(mongoDbSettings.ConnectionString,
+                    name: "mongodb",
                     timeout: TimeSpan.FromSeconds(3),
                     tags: new[]{ "ready" });
         }
@@ -75,7 +75,12 @@ namespace Catalog
             {
                 app.UseHttpsRedirection();
             }
-            
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+
             app.UseRouting();
 
             app.UseAuthorization();
