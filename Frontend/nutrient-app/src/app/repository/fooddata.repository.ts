@@ -12,7 +12,7 @@ export class FoodDataRepository {
   private _httpClient: HttpClient;
 
   private _FoodDataAPIUrl!: string;
-  private _subdomain = 'FoodDatadata';
+  private _subdomain = 'items';
 
   constructor(
     httpClient: HttpClient,

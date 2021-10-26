@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../login/user';
+import { UserService } from '../service/userService';
 
 @Component({
   selector: 'app-register-user',
@@ -14,9 +16,11 @@ export class RegisterUserComponent implements OnInit {
   repeatedPassword: string= "";
 
   private _router: Router;
+  private _userService: UserService;
 
-  constructor(router: Router) { 
+  constructor(router: Router, userService: UserService) {
     this._router = router;
+    this._userService = userService;
   }
 
   ngOnInit(): void {
@@ -26,6 +30,11 @@ export class RegisterUserComponent implements OnInit {
     if (this.username != ''){
       if (this.password != '' && this.repeatedPassword != ''){
         if (this.password === this.repeatedPassword && this.username != ''){
+          this._userService.createUser({
+            name: this.username,
+            age: this.age,
+            password: this.password,
+          })
           this._router.navigateByUrl('/login');
         } else {
           alert('Your passwords do not match!');
@@ -36,8 +45,8 @@ export class RegisterUserComponent implements OnInit {
     } else {
       alert('Please enter a username!');
     }
-    
-    
+
+
   }
 
 }

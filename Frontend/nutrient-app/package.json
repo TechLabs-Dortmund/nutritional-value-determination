@@ -20,6 +20,7 @@
     "@angular/router": "~12.2.0",
     "@syncfusion/ej2-angular-grids": "^19.3.46",
     "@syncfusion/ej2-angular-inputs": "^19.3.44",
+    "angular": "^1.8.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

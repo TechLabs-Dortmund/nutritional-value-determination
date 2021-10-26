@@ -8,7 +8,7 @@ import { IFoodData } from './IFoodData';
 })
 export class FoodTableComponent implements OnInit {
 
-  public tableData: IFoodData = {
+  public tableData: IFoodData[] = [{
     foodName: 'sampleFood',
     kcal: 0,
     carbs: 0,
@@ -17,7 +17,7 @@ export class FoodTableComponent implements OnInit {
     satFats: 0,
     proteins: 0,
     fibers: 0
-  }
+  }]
 
   constructor() { }
 

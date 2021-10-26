@@ -12,10 +12,10 @@ export class CameraComponent implements OnInit {
 
   public path: Object = {
     //AI API POST PATH HERE
-    saveUrl: 'http://127.0.0.1:5000/image',
+    saveUrl: 'http://127.0.0.1:5000/',
     removeUrl: 'https://ej2.syncfusion.com/services/api/uploadbox/Remove' };
 
-
+    
   constructor() { }
 
     onClick(){
