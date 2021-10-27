@@ -44,6 +44,7 @@ namespace Catalog
 
             services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
             services.AddSingleton<IUserRepository, MongoDbUserRepository>();
+            services.AddSingleton<IUserItemRepository, MongoDbUserItemRepository>();
 
             services.AddControllers(options =>
             {
