@@ -64,6 +64,16 @@ export class UserRepository {
     return createduser;
   }
 
+  public async uploadImage(image: FormData): Promise<string> {
+    console.log(image);
+    
+    const food: string = await this._httpClient.post<string>(
+      'http://127.0.0.1:5000/uploadimage',
+      image, 
+      ).toPromise();
+    return food;
+  }
+
   public async deleteUser(id: number): Promise<User> {
     const headers: HttpHeaders = new HttpHeaders()
       .set('accept', 'application/json');

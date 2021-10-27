@@ -26,6 +26,13 @@ export class UserService {
     return createdUser;
   }
 
+  public async uploadImage(image: FormData): Promise<string> {
+    console.log(image);
+    
+    const food: string = await this._UserRepository.uploadImage(image);
+    return food;
+  }
+
   public async updateUser(id: number, User: UserRequest): Promise<User> {
     const updatedUser: User = await this._UserRepository.updateUser(id, User);
 

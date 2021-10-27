@@ -2,6 +2,7 @@ import { HtmlAstPath } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FoodData } from '../models/foodData';
 import { FoodService } from '../service/foodService';
+import { UserService } from '../service/userService';
 
 @Component({
   selector: 'app-camera',
@@ -19,17 +20,17 @@ export class CameraComponent implements OnInit {
 
     
   private _foodService: FoodService;
+  private _userService: UserService;
 
   files: File[] = [];
 
-  constructor(foodService: FoodService) {
+  constructor(foodService: FoodService, userService: UserService) {
     this._foodService = foodService;
+    this._userService = userService;
   }
 
   onClick(){
-      console.log('getting foodData');
-      //redirect to foodTable component
-      //there, get foodDatafrom API and show it in grid
+      this.uploadImage(this.files);
   }
 
   
@@ -37,6 +38,8 @@ export class CameraComponent implements OnInit {
   onSelect(event: { addedFiles: any; }) {
     console.log(event);
     this.files.push(...event.addedFiles);
+    console.log(this.files);
+    
   }
 
   onRemove(event: File) {
@@ -46,6 +49,14 @@ export class CameraComponent implements OnInit {
 
   ngOnInit(): void {
     this.dropEle = document.getElementById('droparea');
+  }
+
+  async uploadImage(files: File[]) {
+    let formData: FormData = new FormData();
+    formData.append('file', files[0], files[0].name);
+    console.log(formData);
+    
+    const food = await this._userService.uploadImage(formData);
   }
 
 }
