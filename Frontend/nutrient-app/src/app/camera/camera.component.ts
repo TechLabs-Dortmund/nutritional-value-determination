@@ -20,6 +20,8 @@ export class CameraComponent implements OnInit {
     
   private _foodService: FoodService;
 
+  files: File[] = [];
+
   constructor(foodService: FoodService) {
     this._foodService = foodService;
   }
@@ -28,6 +30,18 @@ export class CameraComponent implements OnInit {
       console.log('getting foodData');
       //redirect to foodTable component
       //there, get foodDatafrom API and show it in grid
+  }
+
+  
+
+  onSelect(event: { addedFiles: any; }) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event: File) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
   }
 
   ngOnInit(): void {
