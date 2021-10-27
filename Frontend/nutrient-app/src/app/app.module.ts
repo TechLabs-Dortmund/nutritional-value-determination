@@ -13,6 +13,7 @@ import { CameraComponent } from './camera/camera.component';
 import { UploaderModule } from '@syncfusion/ej2-angular-inputs';
 import { FoodTableComponent } from './food-table/food-table.component';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
+import { FoodService } from './service/foodService';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GridModule } from '@syncfusion/ej2-angular-grids';
     GridModule
   ],
   providers: [
-    UserService
+    UserService,
+    FoodService,
   ],
   bootstrap: [AppComponent]
 })

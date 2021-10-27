@@ -37,7 +37,8 @@ export class UserRepository {
 
   public async updateUser(id: number, user: UserRequest): Promise<User> {
     const headers: HttpHeaders = new HttpHeaders()
-      .set('accept', 'application/json');
+      .set('accept', 'application/json')
+      .set('Content-Type', 'application/json');
 
     const updateduser: User = await this._httpClient.put<User>(
       `${this._userAPIUrl}/${this._subdomain}/${id}`,
@@ -50,6 +51,7 @@ export class UserRepository {
 
   public async createUser(userToCreate: UserRequest): Promise<User> {
     const headers: HttpHeaders = new HttpHeaders()
+      .set('accept', 'application/json')
       .set('Content-Type', 'application/json');
 
     const createduser: User = await this._httpClient
@@ -64,7 +66,7 @@ export class UserRepository {
 
   public async deleteUser(id: number): Promise<User> {
     const headers: HttpHeaders = new HttpHeaders()
-      .set('Content-Type', 'application/json');
+      .set('accept', 'application/json');
 
     const deleteduser: User = await this._httpClient
       .delete<User>(
