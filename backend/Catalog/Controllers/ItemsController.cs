@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Catalog.Dtos;
@@ -90,7 +91,7 @@ namespace Catalog.Controllers
                 {"Tomatoes", "TOMATOES,GREEN,RAW"},
             };
 
-            var item = await repository.GetItemAsync(nameDict[name]);
+            var item = await repository.GetItemAsync(name);
 
             if (item is null)
             {
@@ -135,23 +136,41 @@ namespace Catalog.Controllers
     [Route("scrape")]
     public class WebScrapingController : ControllerBase
     {
+        private readonly IItemsRepository repository;
+
+        public WebScrapingController(IItemsRepository repository)
+        {
+            this.repository = repository;
+        }
+        
         [HttpPost]
         public void ScrapeSite()
         {
-            var html = @"http://www.foodnutritiontable.com/nutritions/B";
+            string path = "C:/Users/Stahl/Documents/fooddata.csv";
 
-            HtmlWeb web = new HtmlWeb();
+            string[] lines = System.IO.File.ReadAllLines(path);
+            for (int i = 1; i < lines.Length; i++)
+            {
+               string[] columns = lines[i].Split('"');
+               repository.CreateItemAsync(new Item()
+               {
+                    Id = Guid.NewGuid(),
+                    FoodName = columns[3],
+                    Carbs = decimal.Parse(columns[15] ,CultureInfo.InvariantCulture),
+                    Fibers = decimal.Parse(columns[21] ,CultureInfo.InvariantCulture),
+                    Kcal = decimal.Parse(columns[23] ,CultureInfo.InvariantCulture),
+                    Protein = decimal.Parse(columns[35] ,CultureInfo.InvariantCulture),
+                    Sugars = decimal.Parse(columns[45] ,CultureInfo.InvariantCulture),
+                    SatFat = decimal.Parse(columns[55] ,CultureInfo.InvariantCulture),
+                    Fat = decimal.Parse(columns[57] ,CultureInfo.InvariantCulture),
+                    Kj = 0,
+                    CreatedDate = DateTimeOffset.UtcNow
 
-            var htmlDoc = web.Load(html);
+               });
 
-            var node = htmlDoc.DocumentNode.SelectSingleNode("//body/form/" +
-                                                             "div[@id='outercontainer']/" +
-                                                             "div[@id='container']/" +
-                                                             "div[@id='body']/" +
-                                                             "div[@id='cphMain_pnlVwtContainer']/" +
-                                                             "div[@id='cphMain_ltvNutrition_pnlRowContainer_4']");
-
-            Console.WriteLine("Node Name: " + node.Name + "\n" + node.InnerText);
+            }
+                
+            
         }
     }
 
