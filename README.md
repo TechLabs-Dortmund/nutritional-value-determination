@@ -1,8 +1,3 @@
-## TODO for the Techies
-Please **fill out the following information below**, as soon as possible. It is **required** to have this file completely filled out and up to date at the end of the project phase.
-You can of course use this file to manage your project, e.g. as a place to keep your todos and to plan your features. Also, feel free to edit this readme in any kind of way you like, but the required base layout and information should be consistent throughout all techie projects.
-
-**Hint:** The following file is written in `markdown` which is a language to format text with simple characters. If you are unsure on how to use markdown then have a look at [this guide](https://www.markdownguide.org/basic-syntax/)
 
 By the end you should have filled out the following:
 1. **Project Title:** The title of the project, including a description which states the motivation/problem of the project and the developed solution.
@@ -16,8 +11,7 @@ By the end you should have filled out the following:
 
 # Nutritional Value Determination with Photos
 
-Description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-
+NutrInvest is an Artificial Intelligence (AI) application. With this application, the user can upload a food picture (e.g.: apple, bread, beef etc.). Once uploaded, the image is sent to an AI database using image classifier. Once the AI identifies the food in the picture, it extracts the nutritional value data. The latter is sent back for the users to view in the interface of the application. 
 
 ## How to Setup and Run
 
@@ -53,8 +47,9 @@ function App() {
   
 ## Authors
 
-- [@bob](https://www.github.com/bob)
-- [@alice](https://www.github.com/alice)
+- [@Niklas234](https://github.com/Niklas234)
+- [@AlexLup06](https://github.com/AlexLup06)
+- [@DevVeloRaz](https://github.com/DevVeloRaz)
 
   
 
