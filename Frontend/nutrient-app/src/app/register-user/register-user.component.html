@@ -1,19 +1,33 @@
-<div>
-    <label for="name">Username: </label>
-    <input id="name" [(ngModel)]="username" placeholder="name">
-</div>
-<div>
-    <label for="age">Age: </label>
-    <input id="age" [(ngModel)]="age" placeholder="20">
-</div>
-<div>
-    <label for="password">Password: </label>
-    <input id="password" [(ngModel)]="password" placeholder="password">
-</div>
-<div>
-    <label for="repeat-password">Repeat Password: </label>
-    <input id="repeat-password" [(ngModel)]="repeatedPassword" placeholder="repeat your password">
-</div>
-<div>
-    <button class="register-button" (click)="registerUser()">Register Your Account</button>
-</div>
+<html>
+  <head></head>
+  <body>
+    <h1 class="registeruser">Register your new Account!</h1>
+    <div class="alltext">
+      <div>
+        <label class="text" for="name">Username: </label>
+        <input class="kasten usernm" id="name" [(ngModel)]="username" placeholder="name" />
+      </div>
+      <div>
+        <label class="text" for="age">Age: </label>
+        <input class="kasten age" id="age" [(ngModel)]="age" placeholder="20" />
+      </div>
+      <div>
+        <label class="text" for="password">Password: </label>
+        <input class="kasten passw" id="password" [(ngModel)]="password" placeholder="password" />
+      </div>
+      <div>
+        <label class="text" for="repeat-password">Repeat Password: </label>
+        <input
+          class="kasten reppas"
+          id="repeat-password"
+          [(ngModel)]="repeatedPassword"
+          placeholder="repeat your password"
+        />
+      </div>
+      <h1 class="createnewacc">Create your new Account!</h1>
+      <div>
+        <button class="register-button regbut" (click)="registerUser()">Register Your Account</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+.alltext {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2vw;
+    text-align: center;
+    position: relative;
+    bottom: 20px;
+  }
+
+.text {
+    position: relative;
+    left: -1400px;
+}
+  
+  .registeruser {
+    color: rgb(66, 63, 63);
+    font-size: 4vw;
+    text-align: center;
+    position: relative;
+    bottom: 10px;
+  }
+  
+  .kasten {
+    border-radius: 6px;
+    box-shadow: 2px 2px rgb(70, 65, 65);
+    position: relative;
+    left: 300px;
+    transform: scale(1.5);
+  }
+  
+  #name {
+    position: relative;
+    left: 180px;
+    bottom: 6.5px;
+  }
+  
+  #age {
+    position: relative;
+    left: 100px;
+    bottom: 6.5px;
+  
+  }
+  
+  #password {
+    position: relative;
+    left: 170px;
+    bottom: 6.5px;
+  
+  }
+  
+  #repeat-password {
+    position: relative;
+    left: 270px;
+    bottom: 6.5px;
+  
+  }
+  
+  .text{
+      float: right;
+      position: relative;
+      right: 850px;
+  
+  }
+  
+  .regbut{
+      border-radius: 6px;
+      box-shadow: 2px 2px rgb(70, 65, 65);
+      background: #999;
+      transform: scale(1.6);
+      position: relative;
+      bottom: 25px;
+      left: 0px;
+  }
+  
+  .createnewacc{
+      color: black;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1.3vw;
+      text-align: center;
+      position: relative;
+      right: 0px;
+      top: 22px;
+  }
+  

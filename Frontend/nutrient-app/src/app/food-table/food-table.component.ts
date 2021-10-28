@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodData } from '../models/foodData';
 import { FoodService } from '../service/foodService';
+import { UserService } from '../service/userService';
 import { IFoodData } from './IFoodData';
 
 @Component({
@@ -10,29 +11,25 @@ import { IFoodData } from './IFoodData';
 })
 export class FoodTableComponent implements OnInit {
 
-  public tableData: IFoodData[] = [{
-    foodName: 'sampleFood',
-    kcal: 0,
-    carbs: 0,
-    sugars: 0,
-    fats: 0,
-    satFats: 0,
-    proteins: 0,
-    fibers: 0
-  }]
+  public tableData: IFoodData[] = []
 
   private _foodService: FoodService;
+  private _userService: UserService;
 
-  constructor(foodService: FoodService) {
+  constructor(foodService: FoodService, userService: UserService) {
     this._foodService = foodService;
+    this._userService = userService;
   }
 
   async ngOnInit(): Promise<void> {
-    // Get foodName from Python API
-    let name = '';
-    let foodData: FoodData = await this._foodService.getFoodByName(name);
+    const foodName: string = 'Banana';
+    console.log(foodName);
+    
+    let foodData: FoodData = await this._foodService.getFoodByName(foodName);
+    console.log(foodData);
+    
     let tableData: IFoodData = {
-      foodName: foodData.foodName,
+      foodName: foodName,
       kcal: foodData.kcal,
       carbs: foodData.kcal,
       sugars: foodData.sugars,
@@ -41,6 +38,7 @@ export class FoodTableComponent implements OnInit {
       proteins: foodData.protein,
       fibers: foodData.fibers,
     };
+    
     this.tableData.push(tableData);
   }
 

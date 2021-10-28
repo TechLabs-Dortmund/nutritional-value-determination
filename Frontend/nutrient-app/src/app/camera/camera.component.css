@@ -1,0 +1,9 @@
+.btn {
+    transform: scale(3);
+    border-radius: 6px;
+    box-shadow: 2px 2px rgb(70, 65, 65);
+    background: #999;
+    position: relative;
+    left: 1220px;
+    bottom: -30px;
+  }

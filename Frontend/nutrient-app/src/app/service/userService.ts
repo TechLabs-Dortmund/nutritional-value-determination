@@ -33,6 +33,11 @@ export class UserService {
     return food;
   }
 
+  public async getImageName(): Promise<string> {
+    const food: string = await this._UserRepository.getImageName();
+    return food;
+  }
+
   public async updateUser(id: number, User: UserRequest): Promise<User> {
     const updatedUser: User = await this._UserRepository.updateUser(id, User);
 

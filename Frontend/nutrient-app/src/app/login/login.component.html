@@ -1,12 +1,32 @@
-<div>
-    <label for="name">Username: </label>
-    <input id="name" [(ngModel)]="user.name" placeholder="name">
-</div>
-<div>
-    <label for="password">Password: </label>
-    <input id="password" [(ngModel)]="user.password" placeholder="password">
-</div>
-<div>
-    <button class="login-button" (click)="loginUser()">Login</button>
-    <button routerLink="/register" routerLinkActive="active" class="register-button" (click)="registerUser()">Register New Account</button>
-</div>
+<html>
+  <head> </head>
+
+  <body>
+    <div class="all">
+      <h1 class="Login">Login in to continue</h1>
+      <div class="login_component">
+        <div class="comp">
+          <label for="name">Username: </label>
+          <input class="kasten" id="name" [(ngModel)]="user.name" placeholder="name" />
+        </div>
+        <div class="comp passwo">
+          <label for="password">Password: </label>
+          <input class="kasten passwor" id="password" [(ngModel)]="user.password" placeholder="password" />
+        </div>
+        <div class="comp button">
+          <button class="login-button logbut" (click)="loginUser()">Login</button>
+          <h1 class="registertext">No Account? Sign Up!</h1>
+          <button
+            class="register-button regbut"
+            routerLink="/register"
+            routerLinkActive="active"
+            (click)="registerUser()"
+          >
+            Register New Account
+          </button>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

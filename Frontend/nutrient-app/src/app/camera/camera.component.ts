@@ -1,5 +1,6 @@
 import { HtmlAstPath } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FoodData } from '../models/foodData';
 import { FoodService } from '../service/foodService';
 import { UserService } from '../service/userService';
@@ -21,12 +22,14 @@ export class CameraComponent implements OnInit {
     
   private _foodService: FoodService;
   private _userService: UserService;
+  private _router: Router;
 
   files: File[] = [];
 
-  constructor(foodService: FoodService, userService: UserService) {
+  constructor(foodService: FoodService, userService: UserService, router: Router) {
     this._foodService = foodService;
     this._userService = userService;
+    this._router = router;
   }
 
   onClick(){
@@ -55,8 +58,9 @@ export class CameraComponent implements OnInit {
     let formData: FormData = new FormData();
     formData.append('file', files[0], files[0].name);
     console.log(formData);
-    
+    this._router.navigateByUrl('/foodtable');
     const food = await this._userService.uploadImage(formData);
+
   }
 
 }

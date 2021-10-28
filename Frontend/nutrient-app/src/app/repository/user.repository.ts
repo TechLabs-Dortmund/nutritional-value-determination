@@ -56,7 +56,8 @@ export class UserRepository {
 
     const createduser: User = await this._httpClient
       .post<User>(
-      `${this._userAPIUrl}/${this._subdomain}/${userToCreate}`,
+      `${this._userAPIUrl}/${this._subdomain}`,
+      userToCreate,
       {headers: headers},
     )
       .toPromise();
@@ -65,12 +66,24 @@ export class UserRepository {
   }
 
   public async uploadImage(image: FormData): Promise<string> {
-    console.log(image);
     
     const food: string = await this._httpClient.post<string>(
-      'http://127.0.0.1:5000/uploadimage',
+      'http://127.0.0.1:8000/uploadimage',
       image, 
       ).toPromise();
+    return food;
+  }
+
+  public async getImageName(): Promise<string> {
+    
+    const headers: HttpHeaders = new HttpHeaders()
+      .set('accept', 'application/json');
+
+    const food: string = await this._httpClient.get<string>(
+      'http://127.0.0.1:8000/getname',
+      ).toPromise();
+    console.log(food);
+    
     return food;
   }
 

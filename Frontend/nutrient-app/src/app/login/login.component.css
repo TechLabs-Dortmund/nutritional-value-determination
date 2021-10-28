@@ -1,0 +1,75 @@
+.comp {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2vw;
+    text-align: center;
+  }
+  
+  .Login {
+    color: rgb(66, 63, 63);
+    font-size: 4vw;
+    text-align: center;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .kasten {
+    border-radius: 6px;
+    box-shadow: 2px 2px rgb(70, 65, 65);
+    position: relative;
+    bottom: 8px;
+    left: 30px;
+    transform: scale(1.5);
+  }
+  
+  .passwo {
+    position: relative;
+    left: 6.5px;
+  }
+  
+  .passwor {
+    position: relative;
+    left: 30px;
+  }
+  
+  .all {
+    position: relative;
+    top: 20px;
+  }
+  
+  .login_component {
+    position: relative;
+    top: 15px;
+  }
+  
+  .logbut {
+    transform: scale(1.2);
+    border-radius: 6px;
+    box-shadow: 2px 2px rgb(70, 65, 65);
+    background: #999;
+    position: relative;
+    left: 20px;
+    top: 14px;
+    transform: scale(1.8);
+  }
+  
+  .registertext {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1.3vw;
+      text-align: center;
+      position: relative;
+      right: 90px;
+      top: 40px;
+    }
+  
+  .regbut {
+    transform: scale(1.2);
+    border-radius: 6px;
+    box-shadow: 2px 2px rgb(70, 65, 65);
+    background: #999;
+    position: relative;
+    left: 215px;
+    bottom: 50px;
+  }
+  
+  
+  
