@@ -10,7 +10,7 @@ namespace Catalog.Repositories
     public class MongoDbItemsRepository : IItemsRepository
     {
         private const string databaseName = "catalog";
-        private const string collectionName = "nutrients";
+        private const string collectionName = "foods";
         private readonly IMongoCollection<Item> itemsCollection;
         public readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
 

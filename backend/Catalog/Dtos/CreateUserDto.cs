@@ -10,5 +10,7 @@ namespace Catalog.Dtos
         [Required]
         [Range(1, 99)]
         public int Age { get; init; }
+
+        public string Password { get; set; }
     }
 }

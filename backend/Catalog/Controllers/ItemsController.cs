@@ -91,7 +91,7 @@ namespace Catalog.Controllers
                 {"Tomatoes", "TOMATOES,GREEN,RAW"},
             };
 
-            var item = await repository.GetItemAsync(name);
+            var item = await repository.GetItemAsync(nameDict[name]);
 
             if (item is null)
             {

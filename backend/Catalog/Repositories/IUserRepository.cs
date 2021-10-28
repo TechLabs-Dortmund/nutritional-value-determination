@@ -8,7 +8,7 @@ namespace Catalog.Repositories
     public interface IUserRepository
     {
         Task<IEnumerable<User>> GetUsersAsync();
-        Task<User> GetUserAsync(Guid id);
+        Task<User> GetUserAsync(string name);
         Task CreateUserAsync(User item);
         Task UpdateUserAsync(User item);
         Task DeleteUserAsync(Guid id);

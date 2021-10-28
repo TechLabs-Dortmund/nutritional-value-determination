@@ -17,7 +17,7 @@ namespace Catalog.Controllers
         {
             this.repository = repository;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult> GetAllUsers()
         {
@@ -25,13 +25,13 @@ namespace Catalog.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id:guid}")]
-        public async Task<ActionResult> GetUser(Guid id)
+        [HttpGet("{name}")]
+        public async Task<ActionResult> GetUser(string name)
         {
-            var user = await this.repository.GetUserAsync(id);
+            var user = await this.repository.GetUserAsync(name);
             return Ok(user);
         }
-        
+
         [HttpPost]
         public async Task<ActionResult> PostUser(CreateUserDto userDto)
         {
@@ -39,43 +39,24 @@ namespace Catalog.Controllers
             {
                 Id = Guid.NewGuid(),
                 Name = userDto.Name,
-                Age = userDto.Age
+                Age = userDto.Age,
+                Password = userDto.Password
             };
             await repository.CreateUserAsync(user);
             return Created("", user.AsUserDto());
         }
-        
-        [HttpPut]
-        public async Task<ActionResult> UpdateUser(Guid id, UpdateUserDto userDto)
-        {
-            var existingUser = await repository.GetUserAsync(id);
-            if (existingUser is null)
-            {
-                return NotFound();
-            }
-
-            var updatedUser = existingUser with
-            {
-                Name = userDto.Name,
-                Age = userDto.Age
-            };
-            
-            await repository.UpdateUserAsync(updatedUser);
-
-            return NoContent();
-        }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteUserAsync(Guid id)
+        public async Task<ActionResult> DeleteUserAsync(string name)
         {
-            var existingUser = repository.GetUserAsync(id);
+            var existingUser = await repository.GetUserAsync(name);
             if (existingUser is null)
             {
                 return NotFound();
             }
-            
-            await repository.DeleteUserAsync(id);
-            
+
+            //await repository.DeleteUserAsync(existingUser.Id);
+
             return NoContent();
         }
     }

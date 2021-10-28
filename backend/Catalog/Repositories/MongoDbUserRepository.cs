@@ -20,15 +20,15 @@ namespace Catalog.Repositories
             IMongoDatabase database = mongoClient.GetDatabase(databaseName);
             usersCollection = database.GetCollection<User>(collectionName);
         }
-        
+
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
             return await usersCollection.Find(new BsonDocument()).ToListAsync();
         }
 
-        public async Task<User> GetUserAsync(Guid id)
+        public async Task<User> GetUserAsync(string name)
         {
-            var filter = filterBuilder.Eq(item => item.Id, id);
+            var filter = filterBuilder.Eq(item => item.Name, name);
             return await usersCollection.Find(filter).SingleOrDefaultAsync();
         }
 
@@ -39,7 +39,7 @@ namespace Catalog.Repositories
 
         public async Task UpdateUserAsync(User item)
         {
-            var filter = filterBuilder.Eq(existingUser => existingUser.Id, item.Id); 
+            var filter = filterBuilder.Eq(existingUser => existingUser.Id, item.Id);
             await usersCollection.ReplaceOneAsync(filter, item);
         }
 
