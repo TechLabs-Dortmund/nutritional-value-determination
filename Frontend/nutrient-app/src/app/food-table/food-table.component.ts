@@ -22,7 +22,7 @@ export class FoodTableComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const foodName: string = 'Banana'
+    const foodName: string = await this._userService.getImageName();
     console.log(foodName);
     
     let foodData: FoodData = await this._foodService.getFoodByName(foodName);

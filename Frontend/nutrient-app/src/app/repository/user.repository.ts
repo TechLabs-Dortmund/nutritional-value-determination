@@ -81,6 +81,7 @@ export class UserRepository {
 
     const food: string = await this._httpClient.get<string>(
       'http://127.0.0.1:8000/getname',
+      {headers: headers},
       ).toPromise();
     console.log(food);
     
